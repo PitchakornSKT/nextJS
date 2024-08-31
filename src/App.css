@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f6f8fc;
+}
+
+
+
+/* App.css */
+.Navbar {
+  background-color: #fff;
+  padding: 15px 20px;
+  font-family: 'kanit';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em 5em 0 5rem;
+  border-radius: 8px;
+  box-shadow: 3px 2px 20px 9px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure positioning context for underline */
+}
+
+.Navbar-list {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.Navbar-item {
+  text-align: center;
+  position: relative;
+}
+
+.Navbar-link {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px;
+}
+
+
+.Navbar-link::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: #fe5350;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+.Navbar-link.active::before,
+.Navbar-link:hover::before {
+  width: 100%; 
+  transform: translateX(0); 
+}
+
+.Navbar-text {
+  transition: color 0.3s ease; 
+}
+
+.Navbar-link.active,
+.Navbar-link:hover {
+  color: #fe5350; 
+}
+
+
+/* .App */
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-header h1 {
+  color: #61dafb;
+  margin: 0;
+}
+
+.App-header p {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+
+
+/* .PokemonList */
+.PokemonList {
+  margin: 3em 5em 0 5em;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 1em 5rem 1rem 5rem;
+  font-family: 'poppins';
+}
+
+.search-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.type-ability-weakness {
+  display: flex;
+  gap: 15px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-input, select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.filters select {
+  width: 200px;
+  background-color: #f8f9fa;
+}
+
+.search-input {
+  max-width: 300px;
+}
+
+.PokemonList-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.PokemonList-item {
+  width: 200px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้สวยงาม */
+}
+
+.PokemonList-item img {
+  width: 120px;
+  height: 120px;
+}
+
+.PokemonList-item h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #000; 
+}
+
+
+.PokemonList-types {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  gap: 10px; 
+  margin-top: 10px;
+}
+
+.PokemonList-type {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+  color: #fdfdfd; 
+  transition: all 0.3s ease;
+}
+
+.PokemonList-type.grass {
+  background-color: #9BCC50;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.water {
+  background-color: #6390F0;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.fire {
+  background-color: #F57D31;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.electric {
+  background-color: #F7D02C;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.ice {
+  background-color: #96D9D6;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.fighting {
+  background-color: #C22E28;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.poison {
+  background-color: #A33F9F;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.ground {
+  background-color: #E2BF65;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.flying {
+  background-color: #A98FF3;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.psychic {
+  background-color: #F95587;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.bug {
+  background-color: #A6B91A;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.rock {
+  background-color: #B6A136;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.ghost {
+  background-color: #735797;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.dragon {
+  background-color: #6F35FC;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.dark {
+  background-color: #705746;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.steel {
+  background-color: #B7B7CE;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.fairy {
+  background-color: #D685AD;
+  color: #fdfdfd;
+}
+
+.PokemonList-type.normal {
+  background-color: #929da3;
+  color: #fdfdfd;
+}
+
+
+
+.PokemonList-item {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  width: 150px;
+  transition: transform 0.2s;
+}
+
+.PokemonList-item img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.PokemonList-item h3 {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.PokemonList-item p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #666;
+}
+
+.PokemonList-item:hover {
+  transform: scale(1.05);
+}
+
+
+
+/* .PokemonDetail */
+.PokemonDetail {
+  margin: 20px auto;
+  max-width: 800px;
+  text-align: center;
+  font-family: 'poppins';
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  background-color: #f9f9f9; 
+}
+
+.PokemonDetail img {
+  max-width: 100%;
+  width: 150px; 
+  height: auto; 
+}
+
+.PokemonDetail-info {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+}
+
+.PokemonDetail-info h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.PokemonDetail-info h3 {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  color: #555;
+  border-bottom: 2px solid #61dafb;
+  padding-bottom: 5px;
+}
+
+.PokemonDetail-stats {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.PokemonDetail-stats li {
+  margin: 15px 0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-bar {
+  background-color: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 20px; 
+  margin-top: 5px;
+  width: 100%;
+  max-width: 300px; 
+  position: relative;
+}
+
+.stat-bar-fill {
+  background-color: #61dafb;
+  height: 100%;
+  width: 0; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff; 
+  font-weight: bold;
+}
+
+.stat-bar-text {
+  position: absolute;
+  right: 10px; 
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.PokemonDetail-moves {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.PokemonDetail-moves li {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* .AboutMe */
+.aboutme-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'kanit', sans-serif; /* ใช้ฟอนต์ที่คุณต้องการ */
+}
+
+.aboutme-title {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 2rem;
+}
+
+.aboutme-info {
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.aboutme-info p {
+  margin: 10px 0;
+}
+
+.aboutme-info strong {
+  color: #fe5350; /* สีสำหรับหัวข้อข้อมูล */
+}
+
